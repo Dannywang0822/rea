@@ -512,6 +512,14 @@ const workflowAvailabilityFor = ({
   if (kind === "application") return { reason: "available", remediation: null };
   if (kind === "pcap-provider" || kind === "flutter-provider")
     return { reason: "available", remediation: null };
+  if (kind === "unity-il2cpp-provider")
+    return process.platform === "linux" && process.arch === "x64"
+      ? { reason: "available", remediation: null }
+      : {
+          reason: "unsupported_host",
+          remediation:
+            "extract-unity-il2cpp is verified on Linux x64. Pinned Cpp2IL and AssetRipper binaries are Linux x64 builds and are downloaded into a local cache on first use.",
+        };
   const electron = electronProviderAvailability(name, kind, policy);
   if (electron !== null) return electron;
   if (kind === "runtime-provider")

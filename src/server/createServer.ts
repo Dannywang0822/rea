@@ -88,6 +88,9 @@ import { registerEnhancedTools } from "./registerEnhancedTools.js";
 import { registerJavaScriptRuntimeObservationTools } from "./registerJavaScriptRuntimeObservationTools.js";
 import { registerManagedTools } from "./registerManagedTools.js";
 import { registerFirmwareTools } from "./registerFirmwareTools.js";
+import { registerUnityIl2cppTools } from "./registerUnityIl2cppTools.js";
+import { createUnityIl2cppProvider } from "../composition/unityIl2cpp.js";
+import type { UnityIl2cppPort } from "../application/unityIl2cpp/UnityIl2cppPort.js";
 import { FirmwareAnalysisService } from "../application/firmware/FirmwareAnalysisService.js";
 import type { FirmwareAnalysisPort } from "../application/firmware/FirmwareAnalysisPort.js";
 import { createFirmwareAnalysisProvider } from "../composition/firmware.js";
@@ -323,6 +326,7 @@ export const createServer = (
   const firmwareAnalysis = new FirmwareAnalysisService(
     options.firmwareAnalysis ?? createFirmwareAnalysisProvider(environment),
   );
+  const unityIl2cpp = createUnityIl2cppProvider();
   const selectedOptions = {
     ...options,
     environment,
@@ -410,6 +414,7 @@ export const createServer = (
       artifactResources.close(),
       reverseEngineering.close(),
       firmwareAnalysis.close(),
+      unityIl2cpp.close?.() ?? Promise.resolve(),
       gdbSessions.closeAll(),
       rizinDebugSessions.closeAll(),
     ])
@@ -558,6 +563,7 @@ export const createServer = (
     jeb,
     firmwareAnalysis,
     webRuntime,
+    unityIl2cpp,
   );
   registerAdbTools(
     server,
@@ -663,6 +669,7 @@ const registerConfiguredAnalysisTools = (
   jeb: JebAnalysisPort,
   firmwareAnalysis: FirmwareAnalysisService,
   webRuntime: WebRuntimeService,
+  unityIl2cpp: UnityIl2cppPort,
 ): void => {
   registerAndroidTools(
     server,
@@ -748,6 +755,13 @@ const registerConfiguredAnalysisTools = (
   registerFirmwareTools(
     server,
     firmwareAnalysis,
+    toolLogger,
+    recordEvidence,
+    withAdmittedAnalysis,
+  );
+  registerUnityIl2cppTools(
+    server,
+    unityIl2cpp,
     toolLogger,
     recordEvidence,
     withAdmittedAnalysis,

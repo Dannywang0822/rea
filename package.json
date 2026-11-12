@@ -66,6 +66,8 @@
     "bridge/ghidra/ReaGhidraPrepareRaw.java",
     "bridge/android/ReaJadxBridge.java",
     "bridge/mitmproxy/capture.py",
+    "bridge/unity-il2cpp/dump_textassets.py",
+    "bridge/unity-il2cpp/unpack_archive.py",
     "scripts/rea.mjs",
     "scripts/rea-android-workspace-guardian.mjs",
     "scripts/electron-active-hook.cjs",

@@ -74,6 +74,8 @@ const SOURCE_PATHS = {
   artifactContracts: "dist/contracts/artifactToolContracts.js",
   managedContracts: "dist/contracts/managed/managedToolContracts.js",
   firmwareContracts: "dist/contracts/firmware/firmwareToolContracts.js",
+  unityIl2cppContracts:
+    "dist/contracts/unityIl2cpp/unityIl2cppToolContracts.js",
   firmwareProvider: "dist/firmware/FirmwareRelease.js",
   androidContracts: "dist/contracts/android/androidToolContracts.js",
   flutterContracts: "dist/contracts/flutter/flutterToolContracts.js",

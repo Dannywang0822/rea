@@ -54,6 +54,11 @@ export const toolFamilyCatalog = (sources) => {
       contracts: sources.firmwareContracts.FIRMWARE_TOOL_CONTRACTS,
     },
     {
+      id: "unity-il2cpp",
+      surface: "unity-il2cpp-provider",
+      contracts: sources.unityIl2cppContracts.UNITY_IL2CPP_TOOL_CONTRACTS,
+    },
+    {
       id: "android",
       surface: "android-provider",
       contracts: sources.androidContracts.ANDROID_TOOL_CONTRACTS,

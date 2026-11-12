@@ -260,6 +260,13 @@ export const TOOL_EFFECTS: Readonly<Record<string, ToolEffects>> = {
     writesFilesystem: true,
     idempotent: false,
   }),
+  extract_unity_il2cpp: effects({
+    mutatesSession: true,
+    writesFilesystem: true,
+    launchesProcess: true,
+    accessesNetwork: true,
+    idempotent: false,
+  }),
   inspect_android_package: effects({
     mutatesSession: true,
     launchesProcess: true,

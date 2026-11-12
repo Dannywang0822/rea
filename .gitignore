@@ -52,6 +52,10 @@ Thumbs.db
 /_reference/
 /experiments/analysis-efficiency/results/
 
+# Unpacked original packages and AssetRipper-exported original assets.
+# Do not package, upload, or commit this directory.
+LOCAL_ONLY_DO_NOT_PACKAGE/
+
 # Generated website download
 /website/public/examples/notes-example.zip
 /website/public/deployment.json

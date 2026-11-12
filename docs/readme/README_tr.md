@@ -322,3 +322,5 @@ paylaşımı kısıtlamaları dahil olmak üzere satıcı koşullarına tabidir.
 kopyalar, çalınmış anahtarlar, yetkisiz anahtar paylaşımı ve lisans
 kısıtlamalarını aşma yetkili kullanım kapsamında değildir. Bu yönlendirme MIT
 veya üçüncü taraf lisanslarını değiştirmez.
+
+[Unity IL2CPP](../unity-il2cpp-analysis.md)

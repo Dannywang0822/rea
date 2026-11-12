@@ -59,7 +59,7 @@ availability have different remedies; avoid repeating setup for all of them.
    absent, inspect the client's MCP launch error rather than repeating setup.
 
 REA setup never installs or upgrades Node.js, npm, Homebrew, Java, Ghidra, IDA,
-JADX, Kuna, Binwalk, or Unblob. Use existing prerequisites; do not install unrelated
+JADX, Kuna, Binwalk, Unblob, UnityPy, Cpp2IL, or AssetRipper. Use existing prerequisites; do not install unrelated
 software to repair
 MCP registration. For an unsupported client, use manual stdio registration
 with a version-pinned `rea-agents` package or continue through the CLI.
@@ -79,7 +79,7 @@ is within the authorized scope, use `npx -y rea-agents@latest` in its place.
 Configuration repair starts with a read-only setup plan; show paths, backups and
 skill replacement before applying authorized changes. Preserve existing approval
 and target-execution boundaries. REA setup never installs or upgrades unrelated
-software, including Node.js, npm, Homebrew, Java, Ghidra, IDA, JADX, Kuna, Binwalk or Unblob.
+software, including Node.js, npm, Homebrew, Java, Ghidra, IDA, JADX, Kuna, Binwalk, Unblob, UnityPy, Cpp2IL, or AssetRipper.
 
 ## Route the target first
 
@@ -100,6 +100,13 @@ explicit path or endpoint and do not need it.
   `extract_firmware` when extraction is requested, with a caller-selected new
   absolute output directory. These tools use caller-supplied Binwalk/Unblob on
   Linux; see the [firmware guide](https://github.com/morluto/rea/blob/main/docs/firmware-analysis.md).
+- Unity IL2CPP Android package (XAPK or APK) when the question is serialized
+  planet, part, fuel, parachute, or UI values, or dummy-DLL class and field
+  structure: `extract_unity_il2cpp` with absolute local paths. Derived tables
+  go in the output directory. Unpacked originals stay under
+  `LOCAL_ONLY_DO_NOT_PACKAGE` and must not be packaged, uploaded, or committed.
+  IL method bodies and flight formulas are not recovered. Linux x64; see the
+  [Unity IL2CPP guide](https://github.com/morluto/rea/blob/main/docs/unity-il2cpp-analysis.md).
 - .NET NativeAOT PE/ELF: native Ghidra analysis. Native code can yield pseudocode;
   consult the NativeAOT workflow in `references/native-and-artifacts.md` for
   optional metadata recovery and its supported host/layout boundary.
