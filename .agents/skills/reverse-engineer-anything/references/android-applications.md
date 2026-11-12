@@ -29,6 +29,12 @@ the per-operation deadline (default 120000 ms; the MCP client's tool timeout
 must also allow it). The APK is never launched,
 and no emulator is required.
 
+For a Unity IL2CPP package, use `extract_unity_il2cpp` when the question is
+serialized data or dummy-DLL class and field structure. Pass absolute paths.
+The command does not execute the package and does not recover IL method bodies.
+Original unpacked bytes stay in `LOCAL_ONLY_DO_NOT_PACKAGE`. See the
+[Unity IL2CPP guide](https://github.com/morluto/rea/blob/main/docs/unity-il2cpp-analysis.md).
+
 Manifest entries and decompiled text are static observations, not execution or
 policy enforcement. Incoming references are recovered static relationships;
 reflection, dynamic loading, and unresolved calls remain unknown. Preserve

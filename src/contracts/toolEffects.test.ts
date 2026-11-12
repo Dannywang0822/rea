@@ -65,6 +65,8 @@ const EXECUTION_WORDING_EXCEPTIONS: Readonly<Record<string, string>> = {
   list_adb_devices: "may start the local adb server, which REA does not own",
   inspect_firmware_regions: "states there is no target execution",
   extract_firmware: "states that extracted code is never executed",
+  extract_unity_il2cpp:
+    "states that the package is not executed; pinned helpers are downloaded and are not target code",
   analyze_javascript_application: "reconstructs the graph without executing",
   reconcile_javascript_runtime: "never invents execution claims",
   observe_javascript_runtime: "never evaluates or resumes the target",
